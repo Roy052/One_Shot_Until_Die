@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Approach : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static AssetManager AssetManager;
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Start()
     {
-        
+        while (AssetManager == null)
+            yield return null;
     }
 }

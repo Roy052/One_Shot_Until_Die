@@ -4,9 +4,10 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public GameObject bulletPrefab;
-
+    public GameObject gun;
     private Rigidbody2D rb;
 
+    bool seeRight = true;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,7 +34,16 @@ public class PlayerController : MonoBehaviour
 
         Vector2 direction = (mousePosition - transform.position).normalized;
 
-        //transform.right = direction;
+        if((direction.x > 0 && seeRight == false) || (direction.x < 0 && seeRight == true))
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            seeRight = !seeRight;
+        }
+
+        if (direction.x < 0)
+            gun.transform.right = new Vector2(-direction.x, direction.y);
+        else
+            gun.transform.right = direction;
 
         if (Input.GetMouseButtonDown(0))
         {

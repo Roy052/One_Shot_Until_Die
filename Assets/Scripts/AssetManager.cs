@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssetMgr : MonoBehaviour
+public class AssetManager : MonoBehaviour
 {
     public static GameObject[] prefabs;
 

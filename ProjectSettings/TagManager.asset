@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 2220734731
+    locked: 0
+  - name: CutScene
+    uniqueID: 439682933
+    locked: 0

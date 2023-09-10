@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum GameStatus
     {
-        
+        None = -1,
+        Prologue = 0,
+        Battle = 1,
+        Dead = 2,
     }
 
-    // Update is called once per frame
-    void Update()
+    //public Dictionary<GameStatus, string> GameProgress = new Dictionary<GameStatus, string>();
+
+    public GameStatus currentStatus = GameStatus.None;
+    public bool nextStep = false;
+
+    private void Start()
     {
-        
+
+    }
+
+    private void Update()
+    {
+        if (nextStep)
+        {
+            nextStep = false;
+            Invoke(currentStatus.ToString(), 0);
+        }
+    }
+
+    void Prologue()
+    {
+        AssetManager.MakePrefab("CutSceneManager");
     }
 }
